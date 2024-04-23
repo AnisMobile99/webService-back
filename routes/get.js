@@ -1,93 +1,60 @@
 const express = require("express");
+const { getFilms, getFilm } = require("../services/getManager");
 const middlewareAdmin = require("../middleware/middlewareAdmin");
-const {
-	getUsers,
-	getUser,
-	updateStatusDegree,
-	updateStatusDocument,
-} = require("../services/adminManager");
-const { deleteUser } = require("../services/usersManager");
 const router = express.Router();
+
+const jwt = require("jsonwebtoken");
+const SECRET_KEY = "anis_secret_key";
+
+function generateToken(userData) {
+	return jwt.sign(userData, SECRET_KEY, { expiresIn: "1h" }); // Expire dans 1 heure
+}
+
+router.post("/getToken", (req, res) => {
+	const { username, password } = req.body;
+
+	if (username === "admin" && password === "admin") {
+		// Remplacez par votre logique de vérification des identifiants
+		const userData = {
+			id: 1,
+			username: "admin",
+			role: "admin",
+		};
+		const token = generateToken(userData);
+		res.send({ token });
+	} else {
+		res.status(401).send({ message: "Identifiants incorrects" });
+	}
+});
 
 // MIDDLEWARE VERIFY TOKEN
 router.use(middlewareAdmin.decodeToken);
 
-router.get("/sportifs", async (req, res, next) => {
+router.get("/films", async (req, res, next) => {
 	try {
-		const sportifs = await getUsers("sportif");
-		res.status(200).send(sportifs);
+		const films = await getFilms();
+		res.status(200).send(films);
 	} catch {
 		res
 			.status(500)
-			.send({ message: "Erreur interne lors de la récupération des sportifs" });
+			.send({ message: "Erreur interne lors de la récupération des films" });
 	}
 });
 
-router.get("/coachs", async (req, res, next) => {
-	try {
-		const coachs = await getUsers("coach");
-		res.status(200).send(coachs);
-	} catch {
-		res
-			.status(500)
-			.send({ message: "Erreur interne lors de la récupération des coachs" });
-	}
-});
-
-router.get("/user/:uid", async (req, res, next) => {
+router.get("/film/:uid", async (req, res, next) => {
 	const { uid } = req.params;
-
 	try {
-		const coachs = await getUser(uid);
-		res.status(200).send(coachs);
-	} catch {
+		const film = await getFilm(uid);
+		if (film) {
+			res.status(200).send(film);
+		} else {
+			res.status(404).send({ message: "Film non trouvé" });
+		}
+	} catch (error) {
+		console.error(error);
 		res.status(500).send({
-			message: "Erreur interne lors de la récupération de l'utilisateur",
-		});
-	}
-});
-
-router.patch("/coach/updateStatusDegree/:uid", async (req, res, next) => {
-	const { uid } = req.params;
-	const { degreeId, status } = req.body;
-
-	try {
-		await updateStatusDegree(uid, degreeId, status);
-		res.status(200).send({
-			success: true,
-		});
-	} catch {
-		res.status(500).send({
-			message: "Erreur interne lors du changement de status du diplome",
-		});
-	}
-});
-
-router.patch("/coach/updateStatusDocument/:uid", async (req, res, next) => {
-	const { uid } = req.params;
-	const { documentId, status } = req.body;
-
-	try {
-		await updateStatusDocument(uid, documentId, status);
-		res.status(200).send({
-			success: true,
-		});
-	} catch {
-		res.status(500).send({
-			message: "Erreur interne lors du changement de status du document",
-		});
-	}
-});
-
-router.delete("/user/:uid", async (req, res, next) => {
-	const { uid } = req.params;
-
-	try {
-		const coachs = await deleteUser(uid);
-		res.status(200);
-	} catch {
-		res.status(500).send({
-			message: "Erreur interne lors de la suppression de l'utilisateur",
+			message: "Erreur interne lors de la récupération du film",
+			error: error.message,
 		});
 	}
 });
