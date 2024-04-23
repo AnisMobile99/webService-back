@@ -1,0 +1,36 @@
+{
+	// ESLint
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+
+	// Prettier
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"editor.formatOnPaste": true,
+
+	// Better comments
+	"better-comments.tags": [
+		{
+			"tag": "TODO",
+			"color": "#00FFF2",
+			"backgroundColor": "#001C1B"
+		},
+		{ "tag": "WARN", "color": "#FF8C00", "backgroundColor": "#1C0F00" },
+		{ "tag": "FIXME", "color": "#F1411A", "backgroundColor": "#1C0803" },
+		{
+			"tag": "DANGER [SECURITY]",
+			"color": "#e55",
+			"bold": true,
+			"backgroundColor": "#1C0404"
+		},
+		{ "tag": "DANGER", "color": "#e55", "backgroundColor": "#1C0404" },
+		{
+			"tag": "INFO",
+			"color": "#3498DB",
+			"italic": true,
+			"backgroundColor": "#07131C"
+		},
+		{ "tag": "//", "color": "#474747", "strikethrough": true }
+	]
+}
