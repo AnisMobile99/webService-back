@@ -551,258 +551,256 @@ let films = [
 		date_parution: "1999-12-10",
 		note: 5,
 	},
-	[
-		{
-			id: 70,
-			nom: "The Happening",
-			description:
-				"Un mystérieux phénomène naturel entraîne une série de suicides massifs à travers le monde, laissant les survivants lutter pour leur vie.",
-			date_parution: "2008-06-13",
-			note: 2,
-		},
-		{
-			id: 71,
-			nom: "Batman & Robin",
-			description:
-				"Batman et Robin affrontent le redoutable Mr Freeze, Poison Ivy et Bane dans une bataille pour sauver Gotham City.",
-			date_parution: "1997-06-20",
-			note: 1,
-		},
-		{
-			id: 72,
-			nom: "Catwoman",
-			description:
-				"Une employée de bureau timide se transforme en une justicière féline après avoir été impliquée dans un complot criminel.",
-			date_parution: "2004-07-23",
-			note: 1,
-		},
-		{
-			id: 73,
-			nom: "The Last Airbender",
-			description:
-				"Dans un monde où certains ont le pouvoir de contrôler les éléments, un jeune garçon découvre qu'il est l'Avatar, destiné à restaurer l'équilibre entre les nations en guerre.",
-			date_parution: "2010-07-01",
-			note: 1,
-		},
-		{
-			id: 74,
-			nom: "Jack and Jill",
-			description:
-				"Un homme doit supporter la visite annuelle de sa sœur jumelle excentrique, ce qui entraîne une série de catastrophes hilarantes.",
-			date_parution: "2011-11-11",
-			note: 1,
-		},
-		{
-			id: 75,
-			nom: "Gigli",
-			description:
-				"Un tueur à gages tombe amoureux de sa partenaire alors qu'ils tentent de kidnapper le frère retardé mental d'un procureur.",
-			date_parution: "2003-08-01",
-			note: 0,
-		},
-		{
-			id: 76,
-			nom: "The Room",
-			description:
-				"Considéré comme l'un des pires films jamais réalisés, ce drame romantique excentrique a gagné une notoriété culte pour ses dialogues bizarres et son mauvais jeu d'acteur.",
-			date_parution: "2003-06-27",
-			note: 0,
-		},
-		{
-			id: 77,
-			nom: "Batman v Superman: Dawn of Justice",
-			description:
-				"Batman et Superman se confrontent alors qu'une nouvelle menace émerge, les obligeant à s'unir contre un ennemi commun.",
-			date_parution: "2016-03-25",
-			note: 2,
-		},
-		{
-			id: 78,
-			nom: "Suicide Squad",
-			description:
-				"Un groupe de super-vilains est recruté par le gouvernement pour accomplir des missions dangereuses en échange de réductions de peine.",
-			date_parution: "2016-08-05",
-			note: 2,
-		},
-		{
-			id: 79,
-			nom: "The Emoji Movie",
-			description:
-				"Dans un monde où chaque emoji a une seule expression faciale, un emoji inadapté tente de devenir 'normal' pour être accepté.",
-			date_parution: "2017-07-28",
-			note: 1,
-		},
-		{
-			id: 80,
-			nom: "Norbit",
-			description:
-				"Un homme timide et malheureux doit affronter son horrible ex-femme lorsque son amour d'enfance revient dans sa vie.",
-			date_parution: "2007-02-09",
-			note: 2,
-		},
-		{
-			id: 81,
-			nom: "Twilight",
-			description:
-				"Une jeune fille tombe amoureuse d'un vampire et doit naviguer dans les dangers de leur relation interdite.",
-			date_parution: "2008-11-21",
-			note: 2,
-		},
-		{
-			id: 82,
-			nom: "Transformers: Revenge of the Fallen",
-			description:
-				"Les Autobots affrontent de nouveaux ennemis et découvrent des secrets cachés alors qu'ils se battent pour sauver la Terre d'une menace extraterrestre.",
-			date_parution: "2009-06-24",
-			note: 2,
-		},
-		{
-			id: 83,
-			nom: "The Twilight Saga: New Moon",
-			description:
-				"Une jeune fille dévastée par la perte de son amour vampire plonge dans le monde sombre des loups-garous alors qu'elle cherche à combler le vide dans son cœur.",
-			date_parution: "2009-11-20",
-			note: 2,
-		},
-		{
-			id: 84,
-			nom: "Fifty Shades of Grey",
-			description:
-				"Une jeune femme inexpérimentée tombe amoureuse d'un homme d'affaires charismatique mais troublé, et ils s'engagent dans une relation BDSM intense.",
-			date_parution: "2015-02-13",
-			note: 2,
-		},
-		{
-			id: 85,
-			nom: "The Twilight Saga: Eclipse",
-			description:
-				"Une jeune fille doit choisir entre son amour pour un vampire et son amitié avec un loup-garou alors qu'une guerre entre les deux factions menace de déchirer sa vie.",
-			date_parution: "2010-06-30",
-			note: 2,
-		},
-		{
-			id: 86,
-			nom: "Fantastic Four",
-			description:
-				"Un groupe de jeunes scientifiques se transforme en super-héros dotés de pouvoirs extraordinaires après avoir été exposés à une énergie cosmique.",
-			date_parution: "2005-07-08",
-			note: 2,
-		},
-		{
-			id: 87,
-			nom: "Transformers: Dark of the Moon",
-			description:
-				"Les Autobots et les Decepticons s'affrontent alors qu'ils découvrent un vaisseau spatial caché sur la lune et se lancent dans une course pour atteindre ses secrets.",
-			date_parution: "2011-06-29",
-			note: 2,
-		},
-		{
-			id: 88,
-			nom: "Alone in the Dark",
-			description:
-				"Un détective du paranormal enquête sur une série de meurtres liés à des expériences gouvernementales secrètes, révélant une menace surnaturelle qui pourrait détruire le monde.",
-			date_parution: "2005-01-28",
-			note: 1,
-		},
-		{
-			id: 89,
-			nom: "Dragonball Evolution",
-			description:
-				"Un jeune guerrier découvre ses pouvoirs extraordinaires et sa destinée en tant que protecteur de la Terre contre les forces du mal extraterrestres.",
-			date_parution: "2009-04-10",
-			note: 1,
-		},
-		{
-			id: 90,
-			nom: "Battlefield Earth",
-			description:
-				"Dans un avenir post-apocalyptique, l'humanité se bat pour sa survie contre une race extraterrestre impitoyable.",
-			date_parution: "2000-05-12",
-			note: 0,
-		},
-		[
-			{
-				id: 91,
-				nom: "Indiana Jones and the Kingdom of the Crystal Skull",
-				description:
-					"L'aventurier Indiana Jones se lance dans une quête pour découvrir le mystère des crânes de cristal et affronter une organisation secrète.",
-				date_parution: "2008-05-22",
-				note: 3,
-			},
-			{
-				id: 92,
-				nom: "Pirates of the Caribbean: Dead Man's Chest",
-				description:
-					"Le capitaine Jack Sparrow se lance dans une quête pour trouver le coffre maudit de Davy Jones et échapper à une dette de vie.",
-				date_parution: "2006-07-07",
-				note: 3,
-			},
-			{
-				id: 93,
-				nom: "Pirates of the Caribbean: At World's End",
-				description:
-					"Jack Sparrow et ses alliés se lancent dans une aventure épique pour sauver le capitaine Jack Sparrow et libérer les âmes piégées dans le coffre de Davy Jones.",
-				date_parution: "2007-05-25",
-				note: 3,
-			},
-			{
-				id: 94,
-				nom: "Pirates of the Caribbean: On Stranger Tides",
-				description:
-					"Jack Sparrow se lance dans une quête pour trouver la fontaine de jouvence, affrontant des ennemis redoutables et des alliés imprévisibles en cours de route.",
-				date_parution: "2011-05-20",
-				note: 3,
-			},
-			{
-				id: 95,
-				nom: "The Hobbit: An Unexpected Journey",
-				description:
-					"Un jeune hobbit est entraîné dans une quête épique pour récupérer un trésor volé, se heurtant à des créatures fantastiques et à des dangers mortels en chemin.",
-				date_parution: "2012-12-14",
-				note: 3,
-			},
-			{
-				id: 96,
-				nom: "The Hobbit: The Desolation of Smaug",
-				description:
-					"Bilbo le hobbit et une compagnie de nains continuent leur voyage pour récupérer le trésor volé et affrontent le dragon redoutable Smaug.",
-				date_parution: "2013-12-13",
-				note: 3,
-			},
-			{
-				id: 97,
-				nom: "The Hobbit: The Battle of the Five Armies",
-				description:
-					"Les forces de la Terre du Milieu se rassemblent pour une bataille épique alors que les nains, les elfes, les hommes et les orques se disputent le contrôle du trésor de Smaug.",
-				date_parution: "2014-12-17",
-				note: 3,
-			},
-			{
-				id: 98,
-				nom: "Harry Potter and the Order of the Phoenix",
-				description:
-					"Harry Potter se prépare pour une bataille épique contre le mage noir Lord Voldemort et son armée de partisans, tout en luttant contre les obstacles de l'adolescence.",
-				date_parution: "2007-07-11",
-				note: 3,
-			},
-			{
-				id: 99,
-				nom: "Harry Potter and the Half-Blood Prince",
-				description:
-					"Harry Potter enquête sur le passé de Voldemort et se prépare pour la confrontation finale tout en naviguant dans les complexités des relations amoureuses et de l'amitié.",
-				date_parution: "2009-07-15",
-				note: 3,
-			},
-			{
-				id: 100,
-				nom: "Harry Potter and the Deathly Hallows – Part 1",
-				description:
-					"Harry Potter et ses amis se lancent dans une mission dangereuse pour détruire les Horcruxes de Voldemort et affaiblir son pouvoir, tandis que le monde des sorciers sombre dans la guerre.",
-				date_parution: "2010-11-19",
-				note: 3,
-			},
-		],
-	],
+
+	{
+		id: 70,
+		nom: "The Happening",
+		description:
+			"Un mystérieux phénomène naturel entraîne une série de suicides massifs à travers le monde, laissant les survivants lutter pour leur vie.",
+		date_parution: "2008-06-13",
+		note: 2,
+	},
+	{
+		id: 71,
+		nom: "Batman & Robin",
+		description:
+			"Batman et Robin affrontent le redoutable Mr Freeze, Poison Ivy et Bane dans une bataille pour sauver Gotham City.",
+		date_parution: "1997-06-20",
+		note: 1,
+	},
+	{
+		id: 72,
+		nom: "Catwoman",
+		description:
+			"Une employée de bureau timide se transforme en une justicière féline après avoir été impliquée dans un complot criminel.",
+		date_parution: "2004-07-23",
+		note: 1,
+	},
+	{
+		id: 73,
+		nom: "The Last Airbender",
+		description:
+			"Dans un monde où certains ont le pouvoir de contrôler les éléments, un jeune garçon découvre qu'il est l'Avatar, destiné à restaurer l'équilibre entre les nations en guerre.",
+		date_parution: "2010-07-01",
+		note: 1,
+	},
+	{
+		id: 74,
+		nom: "Jack and Jill",
+		description:
+			"Un homme doit supporter la visite annuelle de sa sœur jumelle excentrique, ce qui entraîne une série de catastrophes hilarantes.",
+		date_parution: "2011-11-11",
+		note: 1,
+	},
+	{
+		id: 75,
+		nom: "Gigli",
+		description:
+			"Un tueur à gages tombe amoureux de sa partenaire alors qu'ils tentent de kidnapper le frère retardé mental d'un procureur.",
+		date_parution: "2003-08-01",
+		note: 0,
+	},
+	{
+		id: 76,
+		nom: "The Room",
+		description:
+			"Considéré comme l'un des pires films jamais réalisés, ce drame romantique excentrique a gagné une notoriété culte pour ses dialogues bizarres et son mauvais jeu d'acteur.",
+		date_parution: "2003-06-27",
+		note: 0,
+	},
+	{
+		id: 77,
+		nom: "Batman v Superman: Dawn of Justice",
+		description:
+			"Batman et Superman se confrontent alors qu'une nouvelle menace émerge, les obligeant à s'unir contre un ennemi commun.",
+		date_parution: "2016-03-25",
+		note: 2,
+	},
+	{
+		id: 78,
+		nom: "Suicide Squad",
+		description:
+			"Un groupe de super-vilains est recruté par le gouvernement pour accomplir des missions dangereuses en échange de réductions de peine.",
+		date_parution: "2016-08-05",
+		note: 2,
+	},
+	{
+		id: 79,
+		nom: "The Emoji Movie",
+		description:
+			"Dans un monde où chaque emoji a une seule expression faciale, un emoji inadapté tente de devenir 'normal' pour être accepté.",
+		date_parution: "2017-07-28",
+		note: 1,
+	},
+	{
+		id: 80,
+		nom: "Norbit",
+		description:
+			"Un homme timide et malheureux doit affronter son horrible ex-femme lorsque son amour d'enfance revient dans sa vie.",
+		date_parution: "2007-02-09",
+		note: 2,
+	},
+	{
+		id: 81,
+		nom: "Twilight",
+		description:
+			"Une jeune fille tombe amoureuse d'un vampire et doit naviguer dans les dangers de leur relation interdite.",
+		date_parution: "2008-11-21",
+		note: 2,
+	},
+	{
+		id: 82,
+		nom: "Transformers: Revenge of the Fallen",
+		description:
+			"Les Autobots affrontent de nouveaux ennemis et découvrent des secrets cachés alors qu'ils se battent pour sauver la Terre d'une menace extraterrestre.",
+		date_parution: "2009-06-24",
+		note: 2,
+	},
+	{
+		id: 83,
+		nom: "The Twilight Saga: New Moon",
+		description:
+			"Une jeune fille dévastée par la perte de son amour vampire plonge dans le monde sombre des loups-garous alors qu'elle cherche à combler le vide dans son cœur.",
+		date_parution: "2009-11-20",
+		note: 2,
+	},
+	{
+		id: 84,
+		nom: "Fifty Shades of Grey",
+		description:
+			"Une jeune femme inexpérimentée tombe amoureuse d'un homme d'affaires charismatique mais troublé, et ils s'engagent dans une relation BDSM intense.",
+		date_parution: "2015-02-13",
+		note: 2,
+	},
+	{
+		id: 85,
+		nom: "The Twilight Saga: Eclipse",
+		description:
+			"Une jeune fille doit choisir entre son amour pour un vampire et son amitié avec un loup-garou alors qu'une guerre entre les deux factions menace de déchirer sa vie.",
+		date_parution: "2010-06-30",
+		note: 2,
+	},
+	{
+		id: 86,
+		nom: "Fantastic Four",
+		description:
+			"Un groupe de jeunes scientifiques se transforme en super-héros dotés de pouvoirs extraordinaires après avoir été exposés à une énergie cosmique.",
+		date_parution: "2005-07-08",
+		note: 2,
+	},
+	{
+		id: 87,
+		nom: "Transformers: Dark of the Moon",
+		description:
+			"Les Autobots et les Decepticons s'affrontent alors qu'ils découvrent un vaisseau spatial caché sur la lune et se lancent dans une course pour atteindre ses secrets.",
+		date_parution: "2011-06-29",
+		note: 2,
+	},
+	{
+		id: 88,
+		nom: "Alone in the Dark",
+		description:
+			"Un détective du paranormal enquête sur une série de meurtres liés à des expériences gouvernementales secrètes, révélant une menace surnaturelle qui pourrait détruire le monde.",
+		date_parution: "2005-01-28",
+		note: 1,
+	},
+	{
+		id: 89,
+		nom: "Dragonball Evolution",
+		description:
+			"Un jeune guerrier découvre ses pouvoirs extraordinaires et sa destinée en tant que protecteur de la Terre contre les forces du mal extraterrestres.",
+		date_parution: "2009-04-10",
+		note: 1,
+	},
+	{
+		id: 90,
+		nom: "Battlefield Earth",
+		description:
+			"Dans un avenir post-apocalyptique, l'humanité se bat pour sa survie contre une race extraterrestre impitoyable.",
+		date_parution: "2000-05-12",
+		note: 0,
+	},
+
+	{
+		id: 91,
+		nom: "Indiana Jones and the Kingdom of the Crystal Skull",
+		description:
+			"L'aventurier Indiana Jones se lance dans une quête pour découvrir le mystère des crânes de cristal et affronter une organisation secrète.",
+		date_parution: "2008-05-22",
+		note: 3,
+	},
+	{
+		id: 92,
+		nom: "Pirates of the Caribbean: Dead Man's Chest",
+		description:
+			"Le capitaine Jack Sparrow se lance dans une quête pour trouver le coffre maudit de Davy Jones et échapper à une dette de vie.",
+		date_parution: "2006-07-07",
+		note: 3,
+	},
+	{
+		id: 93,
+		nom: "Pirates of the Caribbean: At World's End",
+		description:
+			"Jack Sparrow et ses alliés se lancent dans une aventure épique pour sauver le capitaine Jack Sparrow et libérer les âmes piégées dans le coffre de Davy Jones.",
+		date_parution: "2007-05-25",
+		note: 3,
+	},
+	{
+		id: 94,
+		nom: "Pirates of the Caribbean: On Stranger Tides",
+		description:
+			"Jack Sparrow se lance dans une quête pour trouver la fontaine de jouvence, affrontant des ennemis redoutables et des alliés imprévisibles en cours de route.",
+		date_parution: "2011-05-20",
+		note: 3,
+	},
+	{
+		id: 95,
+		nom: "The Hobbit: An Unexpected Journey",
+		description:
+			"Un jeune hobbit est entraîné dans une quête épique pour récupérer un trésor volé, se heurtant à des créatures fantastiques et à des dangers mortels en chemin.",
+		date_parution: "2012-12-14",
+		note: 3,
+	},
+	{
+		id: 96,
+		nom: "The Hobbit: The Desolation of Smaug",
+		description:
+			"Bilbo le hobbit et une compagnie de nains continuent leur voyage pour récupérer le trésor volé et affrontent le dragon redoutable Smaug.",
+		date_parution: "2013-12-13",
+		note: 3,
+	},
+	{
+		id: 97,
+		nom: "The Hobbit: The Battle of the Five Armies",
+		description:
+			"Les forces de la Terre du Milieu se rassemblent pour une bataille épique alors que les nains, les elfes, les hommes et les orques se disputent le contrôle du trésor de Smaug.",
+		date_parution: "2014-12-17",
+		note: 3,
+	},
+	{
+		id: 98,
+		nom: "Harry Potter and the Order of the Phoenix",
+		description:
+			"Harry Potter se prépare pour une bataille épique contre le mage noir Lord Voldemort et son armée de partisans, tout en luttant contre les obstacles de l'adolescence.",
+		date_parution: "2007-07-11",
+		note: 3,
+	},
+	{
+		id: 99,
+		nom: "Harry Potter and the Half-Blood Prince",
+		description:
+			"Harry Potter enquête sur le passé de Voldemort et se prépare pour la confrontation finale tout en naviguant dans les complexités des relations amoureuses et de l'amitié.",
+		date_parution: "2009-07-15",
+		note: 3,
+	},
+	{
+		id: 100,
+		nom: "Harry Potter and the Deathly Hallows – Part 1",
+		description:
+			"Harry Potter et ses amis se lancent dans une mission dangereuse pour détruire les Horcruxes de Voldemort et affaiblir son pouvoir, tandis que le monde des sorciers sombre dans la guerre.",
+		date_parution: "2010-11-19",
+		note: 3,
+	},
 ];
 
 module.exports = {
