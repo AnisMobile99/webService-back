@@ -2,6 +2,7 @@ const express = require("express");
 const { getFilms, getFilm } = require("../services/getManager");
 const middlewareAdmin = require("../middleware/middlewareAdmin");
 const router = express.Router();
+const { parseString } = require("xml2js");
 
 const jwt = require("jsonwebtoken");
 const SECRET_KEY = "anis_secret_key";
@@ -32,10 +33,23 @@ router.use(middlewareAdmin.decodeToken);
 
 router.get("/films", async (req, res, next) => {
 	try {
-		const films = await getFilms();
-		res.status(200).send(films);
+		// Récupérer le terme de recherche depuis les paramètres de requête
+		const search = req.query.search || "";
+		console.log("seearch param", search);
+		const films = await getFilms(search);
+		if (films.length === 0) {
+			return res.status(200).send({
+				message: "Aucun film ne correspond à cette recherche",
+				isExists: false,
+			});
+		}
+
+		return res.status(200).send({
+			data: films,
+			isExists: true,
+		});
 	} catch {
-		res
+		return res
 			.status(500)
 			.send({ message: "Erreur interne lors de la récupération des films" });
 	}
