@@ -66,6 +66,7 @@ router.get("/films", async (req, res, next) => {
 
 			if (paginatedFilms.length === 0) {
 				return res.status(404).send({
+					url: req.url,
 					message: "Aucun film ne correspond à cette recherche",
 					isExists: false,
 					search,
@@ -82,6 +83,7 @@ router.get("/films", async (req, res, next) => {
 			data = paginatedFilms;
 
 			response = {
+				url: req.url,
 				data,
 				isExists: true,
 				search,
@@ -99,6 +101,7 @@ router.get("/films", async (req, res, next) => {
 
 			if (data.length === 0) {
 				return res.status(404).send({
+					url: req.url,
 					message: "Aucun film ne correspond à cette recherche",
 					isExists: false,
 					search,
@@ -108,6 +111,7 @@ router.get("/films", async (req, res, next) => {
 				});
 			} else {
 				response = {
+					url: req.url,
 					data,
 					isExists: true,
 					search,
