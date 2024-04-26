@@ -68,31 +68,13 @@ Web service backend connecté à une application frontend pour la gestion de fil
         "category": { "href": "/films?selectedCategory=selectedCategory" },
         "rowPerPage&page":{ "href" : "/films?rowPerPage=rowPerPage&page=page"} 
       }
-    }
- ```
-- **GET film/:uid** :  Récupère un film grace a son id.
-   Réponse :
-    ```
-    {
-     nom: string;
-     description: string;
-     date_parution: string ISO;
-     note: 0 | 1 | 2 | 3 | 4 | 5;
-     categorie: string[];
-  }
+    
 
+- **GET film/:uid** :  Récupère un film grace a son id.
 - **POST /film** :  Crée un film.
-   Réponse :
-    ```
-    {
-     data: {nom: string;
-     description: string;
-     date_parution: string ISO;
-     note: 0 | 1 | 2 | 3 | 4 | 5;
-     categorie: string[];
-}
-status:201
-  }
+- **PATCH /film/:uid** **{nom,description,date,note}**:  Modifie un film avec un des parametres configuré
+- **DELETE /film/uid** :  Supprime un film.
+
 
 ## Support
 anis.salahbey@ynov.com
