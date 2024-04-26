@@ -44,17 +44,25 @@ router.get("/films", async (req, res, next) => {
 		const rowPerPage = parseInt(req.query.rowPerPage); // Nombre de lignes par page, par défaut 10
 		const page = parseInt(req.query.page); // Numéro de page, par défaut 1
 
+		// Récupérer la catégorie sélectionnée depuis les paramètres de requête
+		const selectedCategory = req.query.selectedCategory || "";
+
 		// Calculer l'indice de départ et de fin pour la pagination
 		const startIndex = (page - 1) * rowPerPage;
 		const endIndex = startIndex + rowPerPage;
 
-		// Récupérer les films paginés en fonction des paramètres de pagination
+		// Récupérer les films paginés en fonction des paramètres de pagination et de catégorie
 		let paginatedFilms;
 		let response;
 		let data;
-		console.log(rowPerPage, page);
+		console.log(search, rowPerPage, page, selectedCategory);
 		if (rowPerPage && page) {
-			paginatedFilms = await getPaginatedFilms(search, startIndex, endIndex);
+			paginatedFilms = await getPaginatedFilms(
+				search,
+				startIndex,
+				endIndex,
+				selectedCategory,
+			);
 
 			if (paginatedFilms.length === 0) {
 				return res.status(200).send({
@@ -62,6 +70,7 @@ router.get("/films", async (req, res, next) => {
 						"Aucun film ne correspond à cette recherche pour cette pagination",
 					isExists: false,
 					search,
+					selectedCategory,
 					pagination: {
 						totalRows: paginatedFilms.length,
 						totalPages: Math.ceil(paginatedFilms.length / rowPerPage),
@@ -76,6 +85,7 @@ router.get("/films", async (req, res, next) => {
 				data,
 				isExists: true,
 				search,
+				selectedCategory,
 				pagination: {
 					totalRows: paginatedFilms.length,
 					totalPages: Math.ceil(paginatedFilms.length / rowPerPage),
@@ -84,7 +94,7 @@ router.get("/films", async (req, res, next) => {
 				},
 			};
 		} else {
-			data = await getFilms(search);
+			data = await getFilms(search, selectedCategory);
 
 			if (data.length === 0) {
 				return res.status(200).send({
@@ -92,12 +102,14 @@ router.get("/films", async (req, res, next) => {
 					isExists: false,
 					search,
 					data,
+					selectedCategory,
 				});
 			} else {
 				response = {
 					data,
 					isExists: true,
 					search,
+					selectedCategory,
 				};
 			}
 		}
