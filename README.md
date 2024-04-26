@@ -1,6 +1,9 @@
 # Goupe école
-Anis SALAH BEY    / M2 DEV LOGICIEL
-AbdelHakim  AMYAR   / M2 DEV LOGICIEL
+Anis SALAH BEY   &
+AbdelHakim  AMYAR   
+
+# CLASSE
+M2 DEV LOGICIEL / MOBILE & IOT
 
 # Nom du Projet
 WebService backend 
