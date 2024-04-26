@@ -18,6 +18,7 @@ API REST qui permet de :
    
 ## Technologies utilisées
 Node Js express
+Tokenisation
 
 ## Installation et lancement de l'application
 1. Clonez le dépôt
@@ -36,8 +37,6 @@ Web service backend connecté à une application frontend pour la gestion de fil
  - `page` (optionnel) : Numéro de la page.
  - `selectedCategory` (optionnel) : Catégorie des films à récupérer.
 - Réponse :
- ```
-Réponse :
     ```
     {
       "message": string,
@@ -71,6 +70,29 @@ Réponse :
       }
     }
  ```
+- **GET film/:uid** :  Récupère un film grace a son id.
+   Réponse :
+    ```
+    {
+     nom: string;
+     description: string;
+     date_parution: string ISO;
+     note: 0 | 1 | 2 | 3 | 4 | 5;
+     categorie: string[];
+  }
+
+- **POST /film** :  Crée un film.
+   Réponse :
+    ```
+    {
+     data: {nom: string;
+     description: string;
+     date_parution: string ISO;
+     note: 0 | 1 | 2 | 3 | 4 | 5;
+     categorie: string[];
+}
+status:201
+  }
 
 ## Support
 anis.salahbey@ynov.com
