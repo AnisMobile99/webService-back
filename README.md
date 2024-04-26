@@ -1,37 +1,79 @@
-# Webservice-back
-
-GROUPE : 
+# Goupe école
 Anis SALAH BEY    / M2 DEV LOGICIEL
 AbdelHakim  AMYAR   / M2 DEV LOGICIEL
 
+# Nom du Projet
+WebService backend 
 
-# Add your files
+## Fonctionnalités
+API REST qui permet de :
+1.  Lister les films
+2.  Filtrer les films par recherche
+3.  Filtrer les films par pagination
+4.  Filtrer les films par categorie
+5. Gestion de film ( Créer , Modifier , Suprrimer ) 
+   
+## Technologies utilisées
+Node Js express
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/koacher/koacher-server.git
-git branch -M main
-git push -uf origin main
-```
-
-## Name
-Webservice Back
+## Installation et lancement de l'application
+1. Clonez le dépôt
+2. npm install
+3. npm run dev
 
 ## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+Web service backend connecté à une application frontend pour la gestion de films
 
+## Endpoints
 
-## Installation
-npm install 
-
-## Usage
-npm run dev
+- **GET /films** : Récupère la liste des films.
+- Paramètres ( query )  :
+ - `search` (optionnel) : Terme de recherche pour filtrer les films.
+ - `rowPerPage` (optionnel) : Nombre de films par page.
+ - `page` (optionnel) : Numéro de la page.
+ - `selectedCategory` (optionnel) : Catégorie des films à récupérer.
+- Réponse :
+ ```
+Réponse :
+    ```
+    {
+      "message": string,
+      "isExists": booleen,
+      "search": string | null,
+      "selectedCategory": string | null,
+      "isPagined": booleen,
+      "pagination": {
+        "totalRows": 100,
+        "totalPages": 10,
+        "rowPerPage": number,
+        "currentPage": number
+      },
+      "_links": {
+        "self": { "href": "/films" },
+        "first": {
+          "href": "/films?page=1&rowPerPage=rowPerPage&search=search&selectedCategory=selectedCategory"
+        },
+        "prev": {
+          "href": "/films?page=page&rowPerPage=rowPerPage&search=search&selectedCategory=selectedCategory"
+        },
+        "next": {
+          "href": "/films?page=page&rowPerPage=rowPerPage&search=search&selectedCategory=selectedCategory"
+        },
+        "last": {
+          "href": "/films?page=totalPages&rowPerPage=rowPerPage&search=search&selectedCategory=selectedCategory"
+        },
+        "search": { "href": "/films?search=search" },
+        "category": { "href": "/films?selectedCategory=selectedCategory" },
+        "rowPerPage&page":{ "href" : "/films?rowPerPage=rowPerPage&page=page"} 
+      }
+    }
+ ```
 
 ## Support
 anis.salahbey@ynov.com
-
+abdelhakim.amyar@ynov.com
 
 ## Authors and acknowledgment
 AnisMobile99
-
+Hakimbg1
 
