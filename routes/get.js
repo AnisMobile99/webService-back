@@ -65,12 +65,12 @@ router.get("/films", async (req, res, next) => {
 			);
 
 			if (paginatedFilms.length === 0) {
-				return res.status(200).send({
-					message:
-						"Aucun film ne correspond à cette recherche pour cette pagination",
+				return res.status(404).send({
+					message: "Aucun film ne correspond à cette recherche",
 					isExists: false,
 					search,
 					selectedCategory,
+					isPagined: true,
 					pagination: {
 						totalRows: paginatedFilms.length,
 						totalPages: Math.ceil(paginatedFilms.length / rowPerPage),
@@ -86,6 +86,7 @@ router.get("/films", async (req, res, next) => {
 				isExists: true,
 				search,
 				selectedCategory,
+				isPagined: true,
 				pagination: {
 					totalRows: paginatedFilms.length,
 					totalPages: Math.ceil(paginatedFilms.length / rowPerPage),
@@ -97,12 +98,13 @@ router.get("/films", async (req, res, next) => {
 			data = await getFilms(search, selectedCategory);
 
 			if (data.length === 0) {
-				return res.status(200).send({
+				return res.status(404).send({
 					message: "Aucun film ne correspond à cette recherche",
 					isExists: false,
 					search,
 					data,
 					selectedCategory,
+					isPagined: false,
 				});
 			} else {
 				response = {
@@ -110,6 +112,7 @@ router.get("/films", async (req, res, next) => {
 					isExists: true,
 					search,
 					selectedCategory,
+					isPagined: false,
 				};
 			}
 		}
