@@ -803,6 +803,28 @@ let films = [
 	},
 ];
 
+const categories = [
+	{ uid: 1, name: "Action" },
+	{ uid: 2, name: "Adventure" },
+	{ uid: 3, name: "Drama" },
+	{ uid: 4, name: "Fantasy" },
+	{ uid: 5, name: "Horror" },
+	{ uid: 6, name: "Comedy" },
+	{ uid: 7, name: "Sci-Fi" },
+	{ uid: 8, name: "Documentary" },
+	{ uid: 9, name: "Romance" },
+	{ uid: 10, name: "Thriller" },
+];
+
+function getRandomCategories() {
+	const shuffled = categories.sort(() => 0.5 - Math.random());
+	return shuffled.slice(0, Math.floor(Math.random() * 3) + 1); // 1 à 3 catégories
+}
+
+films.forEach((film) => {
+	film.categories = getRandomCategories();
+});
+
 module.exports = {
 	films,
 };
