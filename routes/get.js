@@ -55,7 +55,7 @@ router.get("/films", async (req, res, next) => {
 		let paginatedFilms;
 		let response;
 		let data;
-		console.log(search, rowPerPage, page, selectedCategory);
+
 		if (rowPerPage && page) {
 			paginatedFilms = await getPaginatedFilms(
 				search,
@@ -66,7 +66,6 @@ router.get("/films", async (req, res, next) => {
 
 			if (paginatedFilms.length === 0) {
 				return res.status(404).send({
-					url: req.url,
 					message: "Aucun film ne correspond à cette recherche",
 					isExists: false,
 					search,
@@ -78,12 +77,40 @@ router.get("/films", async (req, res, next) => {
 						rowPerPage,
 						currentPage: page,
 					},
+					_links: {
+						self: { href: req.originalUrl },
+						first: {
+							href: `/films?page=1&rowPerPage=${rowPerPage}&search=${search}&selectedCategory=${selectedCategory}`,
+						},
+						prev:
+							page > 1
+								? {
+										href: `/films?page=${
+											page - 1
+										}&rowPerPage=${rowPerPage}&search=${search}&selectedCategory=${selectedCategory}`,
+									}
+								: null,
+						next:
+							endIndex < paginatedFilms.length
+								? {
+										href: `/films?page=${
+											page + 1
+										}&rowPerPage=${rowPerPage}&search=${search}&selectedCategory=${selectedCategory}`,
+									}
+								: null,
+						last: {
+							href: `/films?page=${Math.ceil(
+								paginatedFilms.length / rowPerPage,
+							)}&rowPerPage=${rowPerPage}&search=${search}&selectedCategory=${selectedCategory}`,
+						},
+						search: { href: `/films?search=${search}` },
+						category: { href: `/films?selectedCategory=${selectedCategory}` },
+					},
 				});
 			}
 			data = paginatedFilms;
 
 			response = {
-				url: req.url,
 				data,
 				isExists: true,
 				search,
@@ -95,28 +122,65 @@ router.get("/films", async (req, res, next) => {
 					rowPerPage,
 					currentPage: page,
 				},
+				_links: {
+					self: { href: req.originalUrl },
+					first: {
+						href: `/films?page=1&rowPerPage=${rowPerPage}&search=${search}&selectedCategory=${selectedCategory}`,
+					},
+					prev:
+						page > 1
+							? {
+									href: `/films?page=${
+										page - 1
+									}&rowPerPage=${rowPerPage}&search=${search}&selectedCategory=${selectedCategory}`,
+								}
+							: null,
+					next:
+						endIndex < paginatedFilms.length
+							? {
+									href: `/films?page=${
+										page + 1
+									}&rowPerPage=${rowPerPage}&search=${search}&selectedCategory=${selectedCategory}`,
+								}
+							: null,
+					last: {
+						href: `/films?page=${Math.ceil(
+							paginatedFilms.length / rowPerPage,
+						)}&rowPerPage=${rowPerPage}&search=${search}&selectedCategory=${selectedCategory}`,
+					},
+					search: { href: `/films?search=${search}` },
+					category: { href: `/films?selectedCategory=${selectedCategory}` },
+				},
 			};
 		} else {
 			data = await getFilms(search, selectedCategory);
 
 			if (data.length === 0) {
 				return res.status(404).send({
-					url: req.url,
 					message: "Aucun film ne correspond à cette recherche",
 					isExists: false,
 					search,
 					data,
 					selectedCategory,
 					isPagined: false,
+					_links: {
+						self: { href: req.originalUrl },
+						search: { href: `/films?search=${search}` },
+						category: { href: `/films?selectedCategory=${selectedCategory}` },
+					},
 				});
 			} else {
 				response = {
-					url: req.url,
 					data,
 					isExists: true,
 					search,
 					selectedCategory,
 					isPagined: false,
+					_links: {
+						self: { href: req.originalUrl },
+						search: { href: `/films?search=${search}` },
+						category: { href: `/films?selectedCategory=${selectedCategory}` },
+					},
 				};
 			}
 		}
