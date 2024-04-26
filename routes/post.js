@@ -35,8 +35,8 @@ router.post("/film", async (req, res, next) => {
 	}
 
 	try {
-		await addFilm(safeValues.data);
-		return res.status(201).send(safeValues.data);
+		let index = await addFilm(safeValues.data);
+		return res.status(201).send({ film, index });
 	} catch (error) {
 		return res.status(500).send({
 			message:

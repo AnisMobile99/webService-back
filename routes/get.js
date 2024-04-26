@@ -1,5 +1,9 @@
 const express = require("express");
-const { getFilms, getFilm } = require("../services/getManager");
+const {
+	getFilms,
+	getFilm,
+	getPaginatedFilms,
+} = require("../services/getManager");
 const middlewareAdmin = require("../middleware/middlewareAdmin");
 const router = express.Router();
 const { parseString } = require("xml2js");
@@ -8,7 +12,7 @@ const jwt = require("jsonwebtoken");
 const SECRET_KEY = "anis_secret_key";
 
 function generateToken(userData) {
-	return jwt.sign(userData, SECRET_KEY, { expiresIn: "1h" }); // Expire dans 1 heure
+	return jwt.sign(userData, SECRET_KEY);
 }
 
 router.post("/getToken", (req, res) => {
@@ -35,23 +39,75 @@ router.get("/films", async (req, res, next) => {
 	try {
 		// Récupérer le terme de recherche depuis les paramètres de requête
 		const search = req.query.search || "";
-		console.log("seearch param", search);
-		const films = await getFilms(search);
-		if (films.length === 0) {
-			return res.status(200).send({
-				message: "Aucun film ne correspond à cette recherche",
-				isExists: false,
-			});
+
+		// Récupérer les paramètres de pagination depuis les paramètres de requête, s'ils sont fournis
+		const rowPerPage = parseInt(req.query.rowPerPage); // Nombre de lignes par page, par défaut 10
+		const page = parseInt(req.query.page); // Numéro de page, par défaut 1
+
+		// Calculer l'indice de départ et de fin pour la pagination
+		const startIndex = (page - 1) * rowPerPage;
+		const endIndex = startIndex + rowPerPage;
+
+		// Récupérer les films paginés en fonction des paramètres de pagination
+		let paginatedFilms;
+		let response;
+		let data;
+		console.log(rowPerPage, page);
+		if (rowPerPage && page) {
+			paginatedFilms = await getPaginatedFilms(search, startIndex, endIndex);
+
+			if (paginatedFilms.length === 0) {
+				return res.status(200).send({
+					message:
+						"Aucun film ne correspond à cette recherche pour cette pagination",
+					isExists: false,
+					search,
+					pagination: {
+						totalRows: paginatedFilms.length,
+						totalPages: Math.ceil(paginatedFilms.length / rowPerPage),
+						rowPerPage,
+						currentPage: page,
+					},
+				});
+			}
+			data = paginatedFilms;
+
+			response = {
+				data,
+				isExists: true,
+				search,
+				pagination: {
+					totalRows: paginatedFilms.length,
+					totalPages: Math.ceil(paginatedFilms.length / rowPerPage),
+					rowPerPage,
+					currentPage: page,
+				},
+			};
+		} else {
+			data = await getFilms(search);
+
+			if (data.length === 0) {
+				return res.status(200).send({
+					message: "Aucun film ne correspond à cette recherche",
+					isExists: false,
+					search,
+					data,
+				});
+			} else {
+				response = {
+					data,
+					isExists: true,
+					search,
+				};
+			}
 		}
 
-		return res.status(200).send({
-			data: films,
-			isExists: true,
+		return res.status(200).send(response);
+	} catch (error) {
+		return res.status(500).send({
+			message: "Erreur interne lors de la récupération des films",
+			error: error.message,
 		});
-	} catch {
-		return res
-			.status(500)
-			.send({ message: "Erreur interne lors de la récupération des films" });
 	}
 });
 
